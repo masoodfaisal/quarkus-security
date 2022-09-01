@@ -35,7 +35,7 @@ You will see how Hashicorp Vault can enable you to store, manage and use this in
 - [Hashicorp Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-minikube-raft)
 - [Quarkus Vault Intgegration](https://quarkiverse.github.io/quarkiverse-docs/quarkus-vault/dev/index.html)
 - Read [more](https://cloud.redhat.com/blog/managing-secrets-openshift-vault-integration?extIdCarryOver=true&sc_cid=701f2000001Css5AAC) about Vault
-
+- Load information for Kubernetes Secrets using [Quarkus](https://quarkus.io/guides/kubernetes-config)
 ## Observability
 Observability enables you to react to any security incident and enahnce your security posture.
 Quarkus provides excellent OOB metrics for your applications. It is recommended to expose business critical metrics such as 'Account NOT Found'
@@ -70,5 +70,17 @@ scanimage.sh CONTAINER_NAME
 ![img.png](img.png)
 - Get the Client authenticator credentials
 ![img_1.png](img_1.png)
+
+## Create Secret for Vault credentials and KeyCloak Client Auth Secret
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+stringData:
+  vault-password: sinclair
+  oidc-secret: 039008d5-70ee-4e24-8767-22f11e7d3363
+```
 
 The application endpoint is available at /helloworldapi
