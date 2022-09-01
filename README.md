@@ -34,6 +34,7 @@ It is critical that you assess how this sensitive data is accessed and managed w
 You will see how Hashicorp Vault can enable you to store, manage and use this information in Quarkus.
 - [Hashicorp Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-minikube-raft)
 - [Quarkus Vault Intgegration](https://quarkiverse.github.io/quarkiverse-docs/quarkus-vault/dev/index.html)
+- Read [more](https://cloud.redhat.com/blog/managing-secrets-openshift-vault-integration?extIdCarryOver=true&sc_cid=701f2000001Css5AAC) about Vault
 
 ## Observability
 Observability enables you to react to any security incident and enahnce your security posture.
@@ -53,7 +54,9 @@ You will see by using Quarkus custom metrics, you can monitor critical functions
 - Config values in [Vault](https://quarkiverse.github.io/quarkiverse-docs/quarkus-vault/dev/vault-auth.html)
 
 ## Package and Deploy App
+How to [publish](https://dev.to/marcuspaulo/tutorial-publish-a-quarkus-application-in-kubernetes-minikube-and-dockerhub-36nd) a quarkus image to minikube
 ```bash
+eval $(minikube -p minikube docker-env)
 mvn clean package -Dquarkus.container-image.build=true -Dquarkus.jib.base-jvm-image=registry.access.redhat.com/ubi8/openjdk-11-runtime:1.14 -DskipTests=true
 ```
 
