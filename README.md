@@ -61,6 +61,7 @@ mvn clean package -Dquarkus.container-image.build=true -Dquarkus.jib.base-jvm-im
 ```
 
 ## Run local container scan
+It needs docker. Red Hat [ACS](https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes) provides this capability for continuous security in OpenShift
 ```bash
 scanimage.sh CONTAINER_NAME
 ```
@@ -72,6 +73,7 @@ scanimage.sh CONTAINER_NAME
 ![img_1.png](img_1.png)
 
 ## Create Secret for Vault credentials and KeyCloak Client Auth Secret
+This information will be injected in the cluster by the corresponding owner
 ```yaml
 apiVersion: v1
 kind: Secret
