@@ -41,3 +41,31 @@ Quarkus provides excellent OOB metrics for your applications. It is recommended 
 to keep monitoring any unusual activity related to your application.
 You will see by using Quarkus custom metrics, you can monitor critical functions of your applications and detect any security event in due time.
 - [Custom Metrics](https://quarkus.io/guides/smallrye-metrics)
+
+
+# Running this sample
+
+## PreRequisite
+- Install Minikube
+- Install [NGinx](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/) Ingress provider
+- Install [Keycloak](https://www.keycloak.org/operator/basic-deployment) on minikube default namespace
+- Install [Hashicorp Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-minikube-raft) 
+- Config values in [Vault](https://quarkiverse.github.io/quarkiverse-docs/quarkus-vault/dev/vault-auth.html)
+
+## Package and Deploy App
+```bash
+mvn clean package -Dquarkus.container-image.build=true -Dquarkus.jib.base-jvm-image=registry.access.redhat.com/ubi8/openjdk-11-runtime:1.14 -DskipTests=true
+```
+
+## Run local container scan
+```bash
+scanimage.sh CONTAINER_NAME
+```
+
+## KeyCloak setup
+- Setup Client in KeyCloak
+![img.png](img.png)
+- Get the Client authenticator credentials
+![img_1.png](img_1.png)
+
+The application endpoint is available at /helloworldapi
